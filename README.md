@@ -15,7 +15,7 @@ Estamos comparando tres propuestas de producto y recopilando evidencias para sel
 
 ## Índice
 
-- [Actividad 0: tres ideas de producto](docs/entregas/00_ideas.md)
+- [Actividad 0: tres ideas de producto](ProyectoFinalEvovle/Actividad_0_Evolve/docs/entregas/00_ideas.md)
 
 ## Descripción del repositorio
 
