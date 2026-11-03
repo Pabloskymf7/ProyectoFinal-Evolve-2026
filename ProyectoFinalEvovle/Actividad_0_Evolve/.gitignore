@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Secretos y credenciales
+.env
+.env.*
+!.env.example
+secrets/
+credentials.json
+*.pem
+*.key
+
+# Datos privados o generados localmente
+data/raw/
+data/private/
+data/processed/
+*.parquet
+*.sqlite
+*.db
+
+# Salidas y registros
+outputs/
+logs/
+*.log
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
