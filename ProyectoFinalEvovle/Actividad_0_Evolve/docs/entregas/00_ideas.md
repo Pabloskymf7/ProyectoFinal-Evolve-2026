@@ -14,7 +14,7 @@
 | [Julen Asua Fullaondo] | [@fuyacck] |
 | [Joan Poveda Baixauli] | [@JoanP21] |
 
-**Idea preferida provisional:** HousingPulse AI, porque dispone de una primera fuente de datos inmobiliarios descargada y permite desarrollar un modelo predictivo con una aplicación web funcional. Además, ofrece posibilidades de ampliación y mejora a partir de nuevos datos y funcionalidades. La elección definitiva queda pendiente de revisar la calidad de los datos, contrastar la necesidad con usuarios y recibir feedback del profesorado.
+**Idea preferida** provisional: HousingPulse AI, porque dispone de una primera fuente de datos inmobiliarios descargada y permite desarrollar un modelo predictivo con una aplicación web funcional. El proyecto se centrará inicialmente en el condado de Miami-Dade (Florida), lo que permitirá trabajar con un ámbito geográfico delimitado y analizar las diferencias de precios entre zonas. Además, ofrece posibilidades de ampliación y mejora a partir de nuevos datos y funcionalidades. La elección definitiva queda pendiente de comprobar la calidad y representatividad de los datos, contrastar la necesidad con usuarios y recibir feedback del profesorado.
 
 ---
 
@@ -22,11 +22,11 @@
 
 ## Título y descripción
 
-HousingPulse AI es una plataforma web que utiliza técnicas de Machine Learning para estimar el precio de una vivienda a partir de sus características físicas y su ubicación geográfica.
+HousingPulse AI es una plataforma web que utiliza técnicas de Machine Learning para estimar el precio de venta de una vivienda a partir de sus características físicas y su ubicación geográfica.
 
-El usuario podrá introducir información como la ciudad, el código postal, la superficie, el número de habitaciones y baños, el año de construcción y el tipo de inmueble. A partir de estos datos, el sistema generará una estimación del precio de la vivienda, acompañada de información sobre los factores que más influyen en el resultado.
+El usuario podrá introducir información como la ciudad, el código postal, la superficie, el número de habitaciones y baños, el año de construcción y el tipo de inmueble. A partir de estos datos, el sistema generará una estimación orientativa del precio de la vivienda, acompañada de información sobre los factores que más influyen en el resultado.
 
-El proyecto combinará análisis exploratorio de datos, preparación de datos inmobiliarios, entrenamiento y evaluación de modelos predictivos y desarrollo de una interfaz web interactiva.
+El proyecto se centrará inicialmente en el condado de Miami-Dade, Florida, y combinará análisis exploratorio de datos, preparación de datos inmobiliarios, entrenamiento y evaluación de modelos predictivos y desarrollo de una interfaz web interactiva.
 
 ## Problema y usuario
 
@@ -40,12 +40,11 @@ HousingPulse AI pretende facilitar una primera estimación orientativa mediante 
 
 Los usuarios iniciales serían particulares interesados en conocer el valor aproximado de su vivienda, compradores que quieran comparar inmuebles y profesionales inmobiliarios que necesiten una herramienta complementaria para analizar propiedades.
 
-
 ## Uso y valor
 
-Un usuario quiere conocer el precio aproximado de su vivienda en Miami. Para ello, introduce su código postal, la superficie, el número de habitaciones y baños, el año de construcción y otras características disponibles.
+Un usuario quiere conocer el precio aproximado de su vivienda en Miami-Dade. Para ello, introduce su código postal, la superficie, el número de habitaciones y baños, el año de construcción y otras características disponibles.
 
-La plataforma procesa esta información y devuelve una estimación del precio, mostrando los principales factores que han influido en la predicción y, cuando sea posible, una referencia de viviendas comparables.
+La plataforma procesa esta información y devuelve una estimación del precio de venta, mostrando los principales factores que han influido en la predicción y, cuando sea posible, una referencia de viviendas comparables.
 
 El valor principal del proyecto sería transformar datos inmobiliarios en una estimación accesible y comprensible, reduciendo la necesidad de realizar comparaciones manuales.
 
@@ -67,27 +66,24 @@ La estimación se presentaría como una referencia orientativa, no como una tasa
 
 **Estado de acceso:** se ha descargado un archivo inmobiliario correspondiente a Miami-Dade y se ha realizado una primera revisión de su estructura y de los valores ausentes. La selección definitiva de registros dependerá de la comprobación de la calidad de los precios, las fechas y las características de las viviendas.
 
-La primera exploración identifica decenas de miles de registros con fecha de última venta desde 2025. Sin embargo, será necesario verificar que las operaciones y los precios sean adecuados para el objetivo predictivo antes de utilizarlos para entrenar el modelo.
+La primera exploración identifica decenas de miles de registros con fecha de última venta desde 2025. No obstante, será necesario verificar que esas fechas correspondan a operaciones adecuadas para el objetivo predictivo y que los precios asociados sean fiables. También se comprobará si existen registros duplicados o propiedades cuya información se haya actualizado en diferentes momentos.
+
+**Variable objetivo:** como primera aproximación, se estudiará `last_sold_price` como variable objetivo del modelo, siempre que se pueda verificar su significado y la fiabilidad de los registros. Esta variable representa el último precio de venta registrado y no debe confundirse con `list_price`, que corresponde al precio anunciado. La variable `list_price` podrá utilizarse en análisis complementarios, pero no se mezclarán ambos conceptos en el entrenamiento del modelo.
 
 **Privacidad y restricciones:** se revisarán las condiciones de uso y redistribución de la fuente antes de publicar los datos o desplegar la aplicación. Se evitará exponer información innecesaria sobre direcciones particulares y se documentarán las fuentes, las transformaciones realizadas y las limitaciones del conjunto de datos.
 
 ## Primera versión o MVP
 
 1. **Auditoría y limpieza de datos:** analizar valores ausentes, duplicados, registros inconsistentes y posibles valores extremos. Seleccionar las viviendas con información suficiente y precios válidos.
-
 2. **Análisis exploratorio:** estudiar la distribución de los precios y su relación con la superficie, las habitaciones, los baños, la antigüedad y la ubicación.
-
 3. **Preparación de variables:** transformar las variables categóricas, gestionar los valores ausentes y preparar las características para el entrenamiento.
-
 4. **Desarrollo de modelos:** construir un modelo base de regresión y compararlo con algoritmos como Random Forest y Gradient Boosting.
-
-5. **Evaluación:** medir el rendimiento con métricas como MAE y RMSE. Se utilizará una separación temporal cuando las fechas disponibles lo permitan, evitando que el modelo se evalúe con información que no habría conocido en el momento de realizar la predicción.
-
+5. **Evaluación:** medir el rendimiento con métricas como MAE y RMSE. Siempre que la calidad de las fechas lo permita, se utilizará una separación temporal para evaluar el modelo con registros más recientes que los utilizados durante el entrenamiento, evitando fugas de información.
 6. **Interpretabilidad:** analizar qué variables influyen más en las estimaciones y estudiar cómo cambia el precio previsto según las características del inmueble.
-
 7. **Aplicación web:** desarrollar una interfaz con Streamlit en la que el usuario introduzca las características de una vivienda y obtenga una estimación.
-
 8. **Informe final:** documentar los datos utilizados, el proceso de limpieza, los modelos comparados, los resultados, las limitaciones y las posibles mejoras.
+
+El principal criterio para valorar el éxito del modelo será el error medio de las estimaciones, medido mediante MAE y RMSE. Se estudiará también si el error es similar entre distintas zonas y tipos de vivienda. El objetivo será conseguir estimaciones suficientemente fiables para ofrecer una referencia orientativa, sin establecer de antemano un nivel de precisión que todavía no se ha comprobado.
 
 ## Fuera del MVP
 
@@ -99,14 +95,13 @@ Tampoco se presentarán como precios actuales estimaciones obtenidas exclusivame
 
 **Principal dificultad:** conseguir que los datos utilizados para entrenar el modelo representen adecuadamente el mercado inmobiliario actual. Aunque el archivo contiene registros recientes, será necesario comprobar la validez de las fechas, la fiabilidad de los precios y la cantidad de operaciones disponibles en cada zona.
 
-Otra dificultad será la heterogeneidad de las propiedades. Los precios de casas unifamiliares, apartamentos y otros tipos de inmuebles pueden responder a factores diferentes. También será necesario evaluar si el modelo funciona de forma similar en distintas ciudades y códigos postales.
+Otra dificultad será la heterogeneidad de las propiedades. Los precios de casas unifamiliares, apartamentos y otros tipos de inmuebles pueden responder a factores diferentes. También será necesario evaluar si el modelo funciona de forma similar en distintas ciudades y códigos postales dentro de Miami-Dade.
 
-**Qué comprobar:** verificar el significado de las variables de precio y fecha, identificar posibles duplicados, analizar la distribución geográfica de las operaciones y revisar los valores extremos. Después se construirá un modelo base y se compararán distintos algoritmos mediante métricas de error.
+**Qué comprobar:** verificar el significado de las variables de precio y fecha, identificar posibles duplicados, analizar la distribución geográfica de las operaciones y revisar los valores extremos. También se comprobará que las variables utilizadas para predecir el precio estén disponibles en el momento en el que un usuario realiza la consulta.
 
-También se comprobará si la muestra permite realizar predicciones fiables en las zonas seleccionadas y se documentarán los casos en los que la información disponible sea insuficiente.
+Después se construirá un modelo base y se compararán distintos algoritmos mediante métricas de error. Se estudiará si la muestra permite realizar predicciones fiables en las zonas seleccionadas y se documentarán los casos en los que la información disponible sea insuficiente.
 
 **Valor diferencial:** HousingPulse AI no se limitará a mostrar estadísticas inmobiliarias, sino que desarrollará un modelo predictivo propio y una aplicación web funcional para estimar el precio de viviendas individuales. El proyecto combinará Machine Learning aplicado, análisis de datos, evaluación rigurosa y desarrollo de producto, con especial atención a la actualidad y la calidad de los datos.
-
 ---
 
 # Idea 2. GoalMetrics AI — Plataforma de analítica avanzada del rendimiento en fútbol mediante Expected Goals (xG)
@@ -214,7 +209,7 @@ El valor principal es convertir datos de encuestas en una estimación accesible 
 
 ## Datos y fuentes candidatas
 
-- **Stack Overflow Developer Survey (2012-2025):** [https://survey.stackoverflow.co/](https://survey.stackoverflow.co/)
+- **Stack Overflow Developer Survey (2012-2025):** [https://survey.stackoverflow.co/](https://survey.stackoverflow.co/) y  (https://github.com/StackExchange/Survey/blob/main/packages/archive/2025/results.csv)
 
   Encuesta anual a desarrolladores de todo el mundo. Cada edición se descarga como CSV junto con su esquema de columnas. Contiene edad, años de experiencia, país, formación, rol, tecnologías utilizadas y salario bruto anualizado. Licencia ODbL.
 
