@@ -1,0 +1,113 @@
+{
+  "input": "realestatedataset-miami-dade-county-fl-2026-10.csv",
+  "since": "2025-01-01",
+  "pasos": [
+    {
+      "paso": "CSV original",
+      "filas": 1015955,
+      "eliminadas": 0
+    },
+    {
+      "paso": "Solo FL y condado 12086",
+      "filas": 1015948,
+      "eliminadas": 7
+    },
+    {
+      "paso": "Solo tipos residenciales",
+      "filas": 1011063,
+      "eliminadas": 4885
+    },
+    {
+      "paso": "Con precio y fecha de venta",
+      "filas": 659575,
+      "eliminadas": 351488
+    },
+    {
+      "paso": "Fecha de venta valida",
+      "filas": 659234,
+      "eliminadas": 341
+    },
+    {
+      "paso": "Ventas desde 2025-01-01",
+      "filas": 36876,
+      "eliminadas": 622358
+    },
+    {
+      "paso": "Precio de venta entre 20,000 y 30,000,000",
+      "filas": 36598,
+      "eliminadas": 278
+    },
+    {
+      "paso": "sqft en rango",
+      "filas": 36376,
+      "eliminadas": 222
+    },
+    {
+      "paso": "beds en rango",
+      "filas": 36328,
+      "eliminadas": 48
+    },
+    {
+      "paso": "baths en rango",
+      "filas": 36282,
+      "eliminadas": 46
+    },
+    {
+      "paso": "lat/lng dentro de Miami-Dade",
+      "filas": 36265,
+      "eliminadas": 17
+    },
+    {
+      "paso": "year_built coherente con la venta",
+      "filas": 36230,
+      "eliminadas": 35
+    },
+    {
+      "paso": "Precio/sqft plausible",
+      "filas": 36061,
+      "eliminadas": 169
+    },
+    {
+      "paso": "Duplicados de id",
+      "filas": 36061,
+      "eliminadas": 0
+    },
+    {
+      "paso": "Duplicados de inmueble (direccion+unidad+zip)",
+      "filas": 35998,
+      "eliminadas": 63
+    },
+    {
+      "paso": "Variables nucleares completas",
+      "filas": 34793,
+      "eliminadas": 1205
+    }
+  ],
+  "filas_finales": 34793,
+  "columnas_finales": [
+    "id",
+    "city",
+    "zip",
+    "lat",
+    "lng",
+    "property_type",
+    "beds",
+    "baths",
+    "sqft",
+    "lot_sqft",
+    "year_built",
+    "sold_price",
+    "heating_type",
+    "central_air",
+    "hoa_fee",
+    "pool",
+    "garage",
+    "waterfront",
+    "fireplace",
+    "basement",
+    "sale_date",
+    "sale_year",
+    "sale_month",
+    "property_age_at_sale"
+  ]
+}
