@@ -102,7 +102,7 @@ Necesitas Git y Python 3.11 o superior.
 # 1) Clonar y entrar en la rama
 git clone https://github.com/Pabloskymf7/ProyectoFinal-Evolve-2026.git
 cd ProyectoFinal-Evolve-2026
-git checkout feature/actividad-1-eda-cleaning
+git checkout feature/pablo-actividad-1-eda-cleaning
 
 # 2) Entorno
 python -m venv .venv
