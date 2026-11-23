@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# Datos pesados o no redistribuibles (ver docs de cada actividad)
+**/data/raw/*
+!**/data/raw/.gitkeep
+**/data/processed/*
+!**/data/processed/.gitkeep
+*.csv.gz
+*.parquet
+
+# Secretos y entorno
+.env
+*.key
+credentials*.json
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
