@@ -22,7 +22,7 @@ El repositorio debe ser accesible para los cuatro integrantes, el coordinador y 
 | Actividad | Contenido | Estado |
 |---|---|---|
 | 0 | Equipos, ideas de producto y repositorio | Entregada |
-| 1 | Python: fuentes de datos, EDA y limpieza | Ver rama `feature/actividad-1-eda-cleaning` |
+| 1 | Python: fuentes de datos, EDA y limpieza | Ver rama `feature/pablo-actividad-1-eda-cleaning` |
 | 2+ | SQL, modelado, aplicación web… | Pendiente |
 
 **Idea preferida (provisional): HousingPulse AI.** Se eligió porque ya hay una fuente de datos descargada y permite desarrollar un modelo predictivo con una aplicación web funcional. La elección definitiva depende de la calidad y representatividad de los datos (Actividad 1), de contrastar la necesidad con usuarios y del feedback del profesorado.
