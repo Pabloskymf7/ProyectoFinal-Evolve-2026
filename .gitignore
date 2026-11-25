@@ -15,6 +15,7 @@ env/
 !**/data/processed/.gitkeep
 *.csv.gz
 *.parquet
+!ProyectoFinalEvovle/Actividad_1_Evolve/data/processed/housingpulse_miami_silver.parquet
 
 # Secretos y entorno
 .env
