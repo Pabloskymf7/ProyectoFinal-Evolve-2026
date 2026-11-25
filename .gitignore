@@ -26,3 +26,5 @@ credentials*.json
 Thumbs.db
 .idea/
 .vscode/
+data/*.csv
+results/*.csv
